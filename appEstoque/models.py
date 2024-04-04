@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import date
 
 class BaseModelQuerySet(models.QuerySet):
     def delete(self):
@@ -35,17 +36,34 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-class Categoria(models.Model):
-    nome = models.CharField(max_length = 100)
-    
-    def __str__(self):
-        return self.nome
-
 class Produto(models.Model):
-    nome = models.CharField(max_length = 100)
-    categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
-    preco = models.DecimalField(max_digits = 5, decimal_places = 2)
-    imagem = models.ImageField(upload_to = 'produtos/', null = True, blank = True)
+
+    TAMANHOS_DISPONIVEIS = {
+        ("P", "p"),
+        ("PP", "pp"),
+        ("M", "m"),
+        ("G", "g"),
+        ("GG", "gg"),
+        ("XG", "xg"),
+    }
+
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    quantidade = models.IntegerField(null=False, blank=False, default=0)
+    tamanho = models.CharField(max_length=2, null=False, blank=False, choices=TAMANHOS_DISPONIVEIS, default='')
+    data = models.DateField(default=date.today, blank=False)
+    descricao = models.TextField(null=True, blank=True)
+
 
     def __str__(self):
-        return self.nome
+        return f"Produto [nome_produto={self.nome}]"
+    
+
+
+class Cliente(models.Model):
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    cpf = models.CharField(max_length=11, null=False, blank=False)
+    telefone = models.CharField(max_length=11)
+
+
+    def __str__(self):
+        return f"Nome: {self.nome}"
