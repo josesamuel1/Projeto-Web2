@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from appEstoque import models
 
-class PostSerializer(serializers.ModelSerializer):
+
+class ProdutoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Post
+        model = models.Produto
         fields = '__all__'

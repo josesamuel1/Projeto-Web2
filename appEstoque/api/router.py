@@ -1,5 +1,5 @@
 from rest_framework import routers
 from appEstoque.api import viewsets
 
-post_router = routers.DefaultRouter()
-post_router.register('post', viewsets.PostViewSet)
+produto_router = routers.DefaultRouter()
+produto_router.register('produto', viewsets.ProdutoViewSet)
