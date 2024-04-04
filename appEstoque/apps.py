@@ -5,8 +5,8 @@ class Testeapp1Config(AppConfig):
     name = 'appEstoque'
 
 class CoreConfig(AppConfig):
-    default_auto_field = "django.db.models.BigAutoField"
-    name = "posts"
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'posts'
     
     def ready(self):
         import posts.signals

@@ -28,12 +28,12 @@ class BaseModel(models.Model):
         super(BaseModel, self).delete(**kwargs)
 
 class Post(models.Model):
-    title = models.CharField(max_length = 200)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add = True)
+    titulo = models.CharField(max_length = 200)
+    descricao = models.TextField()
+    data_publicacao = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
-        return self.title
+        return self.titulo
 
 class Categoria(models.Model):
     nome = models.CharField(max_length = 100)
@@ -45,7 +45,7 @@ class Produto(models.Model):
     nome = models.CharField(max_length = 100)
     categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
     preco = models.DecimalField(max_digits = 5, decimal_places = 2)
-    imagem = models.ImageField(upload_to = 'produtos/', null = True, blank = True)
+    descricao = models.TextField(null = True)
 
     def __str__(self):
         return self.nome
