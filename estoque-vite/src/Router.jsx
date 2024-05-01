@@ -3,6 +3,7 @@
 // Importa os componentes necessários do react-router-dom e os componentes da aplicação
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/Login'
+import Inicio from './components/Inicio/Inicio'
 import PrivateRoute from './components/PrivateRoute'
 import ProdutoEdit from './components/ProdutoEdit'
 import CreatePost from './components/ProdutoEdit'
@@ -20,6 +21,7 @@ function AppRouter() {
         <Route path="/" element={<Login />} />
         {/* Rotas protegidas que requerem autenticação */}
         <Route element={<PrivateRoute />}>
+          <Route path="/inicio" element={<Inicio />} />
           {/* Rota para a listagem de produtos */}
           <Route path="/produto" element={<ProdutoList />} />
           {/* Rota para criar um novo produto */}

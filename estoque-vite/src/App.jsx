@@ -1,6 +1,3 @@
-// Importa o arquivo de estilo CSS.
-import './App.css'
-
 // Importa o componente AppRouter, que contém as definições das rotas da aplicação.
 import AppRouter from './Router'
 

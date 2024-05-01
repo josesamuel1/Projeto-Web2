@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 
 // Importa o arquivo de estilo CSS.
 import '../styles/ProdutoList.css'
+import Navbar from './navbar/Navbar'
 
 // Define o componente ProdutoList como uma função
 function ProdutoList() {
@@ -44,11 +45,12 @@ function ProdutoList() {
   }, [])
   // Retorna a interface do componente ProdutoList
   return (
-    <div className="produto-list-container">
+    <div>
+      <Navbar></Navbar>
       <div className="header">
+      </div>
         <h1>Lista de Produtos</h1>
         <Link to="/produto/create" className="create-button">Criar Novo Produto</Link>
-      </div>
       <ul>
         {produtos.map((produto) => (
           <li key={produto.id} className="produto-item">
