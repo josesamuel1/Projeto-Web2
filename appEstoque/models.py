@@ -58,7 +58,6 @@ class Produto(models.Model):
         return f"Produto [nome_produto={self.nome}]"
     
 
-
 class Cliente(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
     cpf = models.CharField(max_length=11, null=False, blank=False)

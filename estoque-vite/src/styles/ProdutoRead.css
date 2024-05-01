@@ -1,0 +1,11 @@
+/* src/styles/ProdutoRead.css */
+.read-produto-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.produto-image {
+  max-width: 100%;
+  margin-top: 20px;
+}

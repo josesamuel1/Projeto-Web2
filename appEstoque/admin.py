@@ -3,7 +3,7 @@ from .models import Post, Produto, Cliente
 
 @admin.register(Produto)
 class ProdutosEstoque(admin.ModelAdmin):
-    list_display = ('nome', 'quantidade')
+    list_display = ('nome', 'tamanho', 'quantidade')
     search_fields = ('tamanho',)
 
 @admin.register(Cliente)
