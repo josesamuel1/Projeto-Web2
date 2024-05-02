@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 // Importa o arquivo de estilo CSS.
 import '../styles/ProdutoList.css'
 import Navbar from './navbar/Navbar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Define o componente ProdutoList como uma função
 function ProdutoList() {
@@ -20,7 +21,7 @@ function ProdutoList() {
     try {
       // Faz uma solicitação DELETE para a API para excluir o produto com o ID fornecido
       await api.delete(`/produto/${produtoId}/`)
-      
+
       // Atualiza o estado dos produtos, removendo o produto excluído
       const updatedProdutos = produtos.filter(produto => produto.id !== produtoId);
       setProdutos(updatedProdutos);
@@ -49,12 +50,17 @@ function ProdutoList() {
       <Navbar></Navbar>
       <div className="header">
       </div>
-        <h1>Lista de Produtos</h1>
-        <Link to="/produto/create" className="create-button">Criar Novo Produto</Link>
-      <ul>
+      <div className='header2'>
+        <h1 className='listaProdutos'>Controle de Estoque</h1>
+        <Link to="/produto/create" className="create-button">Adicionar Estoque +</Link>
+      </div>
+      <ul className='list'>
         {produtos.map((produto) => (
           <li key={produto.id} className="produto-item">
             <Link to={`/produto/${produto.id}/detail`} className="produto-link-name">{produto.nome}</Link>
+            <Link to={`/produto/${produto.id}/detail`} className="produto-link-name">{produto.quantidade}</Link>
+            <Link to={`/produto/${produto.id}/detail`} className="produto-link-name">{produto.tamanho}</Link>
+            <Link to={`/produto/${produto.id}/detail`} className="produto-link-name">{produto.data}</Link>
             <div className="actions">
               <Link to={`/produto/${produto.id}/edit`} className="produto-link">Editar</Link>
               <button onClick={() => handleDelete(produto.id)} className="delete-button">Deletar</button>

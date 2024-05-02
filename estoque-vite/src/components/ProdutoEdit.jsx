@@ -54,7 +54,6 @@ function ProdutoEdit() {
       formData.append('quantidade', quantidade)
       formData.append('tamanho', tamanho)
       formData.append('descricao', descricao)
-      formData.append('preco', preco)
 
       // Determina se é uma atualização ou criação de um produto
       if (produtoId) {
@@ -81,23 +80,33 @@ function ProdutoEdit() {
   // Retorna a interface do componente ProdutoEdit
   return (
     <div className="edit-produto-container">
-      {/* Título dinâmico com base na existência do produtoId */}
-      <h1>{produtoId ? 'Editar Produto' : 'Criar Novo Produto'}</h1>
-      {/* Formulário para editar ou criar um produto */}
-      <form onSubmit={handleSubmit}>
-        {/* Inputs para o nome, quantidade, tamanho, descricao e preço do produto */}
-        <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
-        <input type="number" placeholder="Quantidade" value={quantidade} onChange={(e) => setQuantidade(e.target.value)} />
-        <input type="selected" placeholder="Tamanho" value={tamanho} onChange={(e) => setTamanho(e.target.value)} />
-        <input type="number" step="0.01" placeholder="Preço" value={preco} onChange={(e) => setPreco(e.target.value)} />
-        <textarea placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
-        {/* Botão para salvar o produto */}
-        <button className="save-button" type="submit">{produtoId ? 'Salvar' : 'Criar'}</button>
-        {/* Link para voltar para a listagem de produtos */}
-        <Link to="/produto" >
-          <button type="button" className="back-button">Voltar para Listagem</button>
-        </Link>
-      </form>
+      <div className='container'>
+        {/* Título dinâmico com base na existência do produtoId */}
+        <h1 className='title'>{produtoId ? 'Editar Produto' : 'Criar Novo Produto'}</h1>
+        {/* Formulário para editar ou criar um produto */}
+        <form onSubmit={handleSubmit}>
+          {/* Inputs para o nome, quantidade, tamanho, descricao e preço do produto */}
+          <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+          <input type="number" placeholder="Quantidade" value={quantidade} onChange={(e) => setQuantidade(e.target.value)} />
+          <select className='select' value={tamanho} onChange={(e) => setTamanho(e.target.value)}>
+            <option value="">Selecione o tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+            <option value="XG">XG</option>
+          </select>
+          <input type="date" step="0.01" placeholder="data" value={preco} onChange={(e) => setPreco(e.target.value)} />
+          <textarea placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+          {/* Botão para salvar o produto */}
+          <button className="save-button" type="submit">{produtoId ? 'Salvar' : 'Criar'}</button>
+          {/* Link para voltar para a listagem de produtos */}
+          <Link to="/produto" >
+            <button type="button" className="back-button">Voltar para Listagem</button>
+          </Link>
+        </form>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,19 @@
-from django.db.models.signals import post_save
+from django.db.models.signals import pre_save, post_save, pre_delete, post_delete
+from django.db.models import Sum
 from django.dispatch import receiver
-from .models import Post
+from appEstoque.models import Produto, ProdutosInventario
 
-@receiver(post_save, sender = Post)
-def update_pub_date (sender, instance, created, **kwargs):
-    if created:
-        instance.pub_date = instance.created_at
+
+def produtos_inventario_update():
+    produtos_count = Produto.objects.all().count()
+    ProdutosInventario.objects.create(produtos_count=produtos_count)
+
     
-    instance.save(update_fields = ['pub_date'])
+@receiver(post_save, sender=Produto)
+def produtos_post_save(sender, instance, **kwargs):
+    produtos_inventario_update()
+
+
+@receiver(post_delete, sender=Produto)
+def produtos_post_delete(sender, instance, **kwargs):
+    produtos_inventario_update()

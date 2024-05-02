@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 // Importa o arquivo de estilo CSS.
 import './navbar.css'
 
-
 function Navbar() {
     return (
         <header>
@@ -17,8 +16,6 @@ function Navbar() {
                     <li className="nav-item">
                     <Link to={`/produto/`} className="produto-link-name">Estoque</Link>
                     </li>
-                    <li className="nav-item"><a href="#">Clientes</a></li>
-                    <li className="nav-item"><a href="#">Relatorio</a></li>
                     <i className='bx bx-search'></i>
                 </ul>
             </nav>

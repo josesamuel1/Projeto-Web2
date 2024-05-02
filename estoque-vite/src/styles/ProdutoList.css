@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 /* src/components/ProdutoList.css */
 .produto-list-container {
   max-width: 700px;
@@ -17,15 +19,15 @@
 }
 
 .produto-item {
-  margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
+  margin: 10px 32px;
 }
 
 .produto-link-name {
-  color: #007bff;
+  color: #EEBE00;
   font-weight: 700;
   text-decoration: none;
   margin-right: 10px;
@@ -40,6 +42,7 @@
   padding: 5px 10px;
   cursor: pointer;
   margin-right: 5px;
+  text-decoration: none;
 }
 
 .produto-link:hover {
@@ -65,7 +68,7 @@
 }
 
 .produto-list-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -74,24 +77,65 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
 .header h1 {
-  margin: 0;
+  margin: 0px 0px 0px 0px;
 }
 
 .create-button {
-  background-color: #28a745;
+  background-color: #A56D00;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 8px 15px;
   text-decoration: none;
-  margin: 10px 0 0 10px;
+  margin: 0px 0px 0px 32px;
 }
 
 .create-button:hover {
-  background-color: #218838;
+  background-color: #704b00;
   color: #fff;
+}
+
+.listaProdutos{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  color: #A56D00;
+}
+
+.list{
+  margin-top: 20px;
+}
+
+.header2 {
+  margin: 0px 32px 10px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0px;
+  background-color: #ffffff;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li:hover {
+  background-color: #ffffff31;
+}   
+
+li span {
+  flex: 1;
+  text-align: left;
 }

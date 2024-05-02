@@ -4,11 +4,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/Login'
 import Inicio from './components/Inicio/Inicio'
+import Estoque from './components/Estoque/Estoque'
 import PrivateRoute from './components/PrivateRoute'
 import ProdutoEdit from './components/ProdutoEdit'
 import CreatePost from './components/ProdutoEdit'
-import ProdutoList from './components/ProdutoList'
+// import ProdutoList from './components/ProdutoList'
 import ProdutoRead from './components/ProdutoRead'
+import ProdutoList from './components/ProdutoList'
 
 // Define o componente AppRouter que contém as rotas da aplicação
 function AppRouter() {

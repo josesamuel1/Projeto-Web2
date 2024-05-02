@@ -5,11 +5,14 @@
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px #000000;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .container p {

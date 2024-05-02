@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Produto, Cliente
+from .models import Produto, Cliente
 
 @admin.register(Produto)
 class ProdutosEstoque(admin.ModelAdmin):
@@ -10,6 +10,3 @@ class ProdutosEstoque(admin.ModelAdmin):
 class ClientesEstoque(admin.ModelAdmin):
     list_display = ('nome', 'cpf')
     search_fields = ('nome', 'cpf')
-
-admin.site.register(Post)
-

@@ -1,12 +1,10 @@
 from django.apps import AppConfig
 
-class Testeapp1Config(AppConfig):
+class appEstoqueConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'appEstoque'
 
-class CoreConfig(AppConfig):
-    default_auto_field = "django.db.models.BigAutoField"
-    name = "produto"
-    
     def ready(self):
-        import produto.signals
+        import appEstoque.signals
+
+    

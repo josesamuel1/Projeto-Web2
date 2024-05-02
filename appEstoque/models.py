@@ -28,13 +28,6 @@ class BaseModel(models.Model):
     def hard_delete(self, **kwargs):
         super(BaseModel, self).delete(**kwargs)
 
-class Post(models.Model):
-    title = models.CharField(max_length = 200)
-    content = models.TextField()
-    pub_date = models.DateTimeField(auto_now_add = True)
-
-    def __str__(self):
-        return self.title
 
 class Produto(models.Model):
 
@@ -55,7 +48,7 @@ class Produto(models.Model):
 
 
     def __str__(self):
-        return f"Produto [nome_produto={self.nome}]"
+        return f"Produto={self.nome}]"
     
 
 class Cliente(models.Model):
@@ -66,3 +59,16 @@ class Cliente(models.Model):
 
     def __str__(self):
         return f"Nome: {self.nome}"
+    
+
+class ProdutosInventario(models.Model):
+    produtos_count = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.produtos_count}'
+
+    
